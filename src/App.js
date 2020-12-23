@@ -3,11 +3,16 @@ import data from './data';
 import List from './List';
 
 function App() {
+  // pass in the data from the data .js file
+  const [people, setPeople] = useState(data);
+
   return <main>
     <section className ="container">
-      <h3>0 birthdays today</h3>
-      <List />
-      <button onClick ={() => console.log('Been Click')}>
+      <h3>{people.length} birthdays today</h3>
+      {/* setup people prop and pass in the people state value */}
+      <List people ={people}/>
+      {/* inline function */}
+      <button onClick ={() => setPeople([])}>
         Clear All
       </button>
     </section>
